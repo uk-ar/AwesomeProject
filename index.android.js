@@ -10,22 +10,21 @@ var {
   StyleSheet,
   Text,
   View,
+  Image,
 } = React;
 
 var AwesomeProject = React.createClass({
   render: function() {
+    var MOCKED_MOVIES_DATA = [
+      {title: 'Title', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+    ];
+    var movie = MOCKED_MOVIES_DATA[0];
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+        <View style={styles.container}>
+        <Text>{movie.title}</Text>
+        <Text>{movie.year}</Text>
+        <Image source={{uri: movie.posters.thumbnail}} />
+        </View>
     );
   }
 });
